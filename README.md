@@ -1,2 +1,124 @@
 # Abdelhamid-el-saeid
  "هذا الموقع مخصص لقراء روايتي الجديدة... إذا وصلت إلى هنا، فربما نجحت في فك الأكواد. الآن جاء دورك لتكمل التحدي، أجب عن الألغاز واكشف الأسرار المخفية!"
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عبدالحميد العسكري | الموقع الرسمي</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #1b1b1b;
+      color: #f4f4f4;
+      font-family: 'Tahoma', sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #f2a900;
+    }
+    a {
+      color: #f2a900;
+      text-decoration: none;
+    }
+    .social a {
+      margin: 0 10px;
+      font-size: 24px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    button {
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f2a900;
+      color: #000;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #333;
+      color: white;
+      border: 1px solid #777;
+      border-radius: 5px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>عبدالحميد العسكري</h1>
+  <div class="section">
+    <h2>استمع إليّ</h2>
+    <audio controls>
+      <source src="voice.mp3" type="audio/mpeg">
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+  </div>  <div class="section">
+    <h2>نبذة عني</h2>
+    <p>كاتب روايات أهوى الغموض والتشويق، أشاركك عالماً من الألغاز والقصص التي تحفّز عقلك.</p>
+  </div>  <div class="section social">
+    <h2>تابعني على</h2>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+    <!-- أضف المزيد من الروابط هنا لاحقاً -->
+  </div>  <div class="section">
+    <h2>هل تستطيع حل الألغاز؟</h2>
+    <form id="quiz-form">
+      <label>1. ما لون الغلاف؟</label>
+      <input type="text" name="q1">
+      <label>2. في أي مدينة تبدأ القصة؟</label>
+      <input type="text" name="q2">
+      <label>3. كم عدد الشخصيات الرئيسية؟</label>
+      <input type="text" name="q3">
+      <label>4. ما هو اسم القاتل؟</label>
+      <input type="text" name="q4">
+      <label>5. ما هو الشيء الذي ضاع؟</label>
+      <input type="text" name="q5">
+      <button type="submit">إرسال</button>
+    </form>
+    <div id="results"></div>
+  </div>  <div class="section">
+    <h2>أرسل اقتراحك أو رسالتك</h2>
+    <form>
+      <input type="text" placeholder="اسمك">
+      <input type="email" placeholder="بريدك الإلكتروني">
+      <textarea rows="4" placeholder="رسالتك"></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </div>  <div class="section">
+    <h2>رواياتي</h2>
+    <p>حمّل مقتطفات أو صور من أعمالي:</p>
+    <a href="novel-sample.pdf" download>تحميل رواية PDF</a>
+  </div>  <div style="display:none">
+    <p>عدد الزوار: <span id="visitor-count">؟</span></p>
+  </div>  <script>
+    document.getElementById("quiz-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const answers = {
+        q1: "أحمر",
+        q2: "القاهرة",
+        q3: "3",
+        q4: "سليم",
+        q5: "الخاتم"
+      };
+      const results = document.getElementById("results");
+      results.innerHTML = "";
+      let inputs = document.querySelectorAll("#quiz-form input");
+      inputs.forEach((input, index) => {
+        let key = `q${index + 1}`;
+        let userAnswer = input.value.trim().toLowerCase();
+        let correctAnswer = answers[key].toLowerCase();
+        let resultText = userAnswer === correctAnswer ? "صحيح" : `خطأ (الإجابة الصحيحة: ${answers[key]})`;
+        results.innerHTML += `<p class='result'>السؤال ${index + 1}: ${resultText}</p>`;
+      });
+    });
+  </script></body>
+</html>
